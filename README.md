@@ -1,4 +1,4 @@
-# Modern & Minimalist Next.js Portfolio.
+<!-- # Modern & Minimalist Next.js Portfolio.
 
 ![Modern & Minimalist Next.js Portfolio.](/.github/images/img_main.png "Modern & Minimalist Next.js Portfolio.")
 
@@ -80,3 +80,4 @@ You can also give this repository a star to show more people and they can use th
     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=sanidhyy/next-portfolio&type=Timeline" />
   </picture>
 </a>
+<! --> -->

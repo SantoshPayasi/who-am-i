@@ -151,6 +151,10 @@ const config = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -164,7 +168,8 @@ const config = {
         fifth: "moveInCircle 20s ease infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-        arora : "aurora 60s linear infinite"
+        arora : "aurora 60s linear infinite",
+        float: 'float 2s ease-in-out infinite',
       },
     },
   },

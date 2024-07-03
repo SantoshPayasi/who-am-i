@@ -1,7 +1,3 @@
-"use client"
-import { motion } from "framer-motion";
-import React from "react";
-import { AuroraBackground } from ".";
 import { Approach } from "@/components/approach";
 import { Clients } from "@/components/clients";
 import { Experience } from "@/components/experience";
@@ -11,6 +7,8 @@ import { Hero } from "@/components/hero";
 import { FloatingNav } from "@/components/ui/floating-nav";
 import { RecentProjects } from "@/components/recent-projects";
 import { navItems } from "@/data";
+import { TechStack } from "@/components/techStack";
+import { IconOrbit } from "@/components/orbitingCircles";
 
 const MainPage = () => {
   return (
@@ -18,8 +16,10 @@ const MainPage = () => {
       <FloatingNav navItems={navItems} />
 
       <div className="w-full max-w-7xl">
-        {/* <Hero /> */}
+        <Hero />
         <Grid />
+        <IconOrbit/>
+        <TechStack/>
         <RecentProjects />
         <Clients />
         <Experience />

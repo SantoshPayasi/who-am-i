@@ -1,11 +1,12 @@
 import { links } from "@/config";
-
+import "./IconImports"
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ] as const;
+
 
 export const gridItems = [
   {
@@ -51,7 +52,7 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a JS Animation library",
+    title: "Currently building a plateform review web app",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -221,6 +222,54 @@ export const socialMedia = [
 ] as const;
 
 export const techStack = {
-  stack1: ["React.js", "Next.js", "Typescript"],
-  stack2: ["Vue.js", "AWS", "MongoDB"],
+  stack1: ["React.js", "Next.js", "NodeJs", "ExpressJs"],
+  stack2: ["Azure", "Firebase", "MySQL", "Flutter"],
+  stack3: ["Postman", "Figma", "GitHub", "VS Code"],
 } as const;
+
+export const visibleTechStack = [
+  {
+    imageLink:"/techStackImages/mongoDB.svg",
+    title:"MongoDB"
+  },
+  {
+    imageLink:"/techStackImages/express.svg",
+    title:"Express"
+  },
+  {
+    imageCompon:"/techStackImages/react.svg",
+    title:"React"
+  },
+  {
+    imageLink:"/techStackImages/nodejs.svg",
+    title:"Node.js"
+  },
+  {
+    imageLink:"/techStackImages/firebase.svg",
+    title:"Firebase"
+  },
+  {
+    imageLink:"/techStackImages/azure.svg",
+    title:"Azure"
+  },
+  {
+    imageLink:"/techStackImages/mysql.svg",
+    title:"MySQL"
+  },
+  {
+    imageLink:"/techStackImages/flutter.svg",
+    title:"Flutter"
+  },
+  {
+    imageLink:"/techStackImages/postman.svg",
+    title:"Postman"
+  },
+  {
+    imageLink:"/techStackImages/github.svg",
+    title:"GitHub"
+  },
+  {
+    imageLink:"/techStackImages/vscode.svg",
+    title:"VS Code"
+  },
+]
