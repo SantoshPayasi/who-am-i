@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
-export const TextGenerateEffect = ({
+const TextGenerateEffect = ({
   words,
   className,
 }: {
@@ -54,3 +54,5 @@ export const TextGenerateEffect = ({
     </div>
   );
 };
+
+export default TextGenerateEffect

@@ -2,12 +2,16 @@ import Link from "next/link";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 import { Spotlight } from "@/components/ui/spotlight";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+// import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { MagicButton } from "@/components/ui/magic-button";
 import { links } from "@/config";
 import { FlipWords } from "./ui/flip-words";
-
-export const Hero = () => {
+import dynamic from "next/dynamic";
+import Loader from "./loader";
+const TextGenerateEffect = dynamic(()=>import("@/components/ui/text-generate-effect"),{
+  loading:()=><Loader/>
+})
+const Hero: React.FC = () => {
   
   return (
     <div className="pb-20 pt-30">
@@ -56,3 +60,5 @@ export const Hero = () => {
     </div>
   );
 };
+
+export default Hero

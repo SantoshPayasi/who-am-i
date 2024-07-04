@@ -1,38 +1,73 @@
-import { GlareCard } from "@/components/ui/glare-card";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { cn } from "@/lib/utils";
+// import Marquee from "@/components/magicui/marquee";
+import TechStackLinks from "@/data/IconImports";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+const Marquee = dynamic(()=>import("@/components/magicui/marquee"),{
+  loading:()=><div>Loading...</div>
+})    
 
-export function TechStack() {
+
+const firstRow = TechStackLinks.slice(0, TechStackLinks.length / 2);
+const secondRow = TechStackLinks.slice(TechStackLinks.length / 2);
+
+const TechStackCard = ({
+  Name,
+  ImageLink
+}: {
+  Name: string;
+  ImageLink: string;
+}) => {
   return (
-    <GlareCard className="flex flex-col items-center justify-center group">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-      >
-        <path
-          fill="#5d4037"
-          d="M42,17.3C42,37.8,24,44,24,44S6,37.8,6,17.3c0-2.5,0.2-4.6,0.4-6.3c0.3-2.5,2-4.5,4.4-5.1 C13.9,5,18.8,4,24,4s10.1,1,13.3,1.9c2.4,0.6,4.1,2.7,4.4,5.1C41.8,12.7,42,14.9,42,17.3z"
-        ></path>
-        <path
-          fill="#4caf50"
-          d="M24,7c4.9,0,9.5,1,12.5,1.8c1.2,0.3,2,1.3,2.2,2.6c0.2,1.9,0.3,3.9,0.3,5.9c0,15.6-11.5,21.9-15,23.4 c-3.5-1.6-15-7.9-15-23.4c0-2,0.1-4,0.3-5.9c0.1-1.3,1-2.3,2.2-2.6C14.5,8,19.1,7,24,7 M24,4c-5.2,0-10.1,1-13.3,1.9 C8.4,6.5,6.6,8.6,6.4,11C6.2,12.7,6,14.9,6,17.3C6,37.8,24,44,24,44s18-6.2,18-26.7c0-2.5-0.2-4.6-0.4-6.3c-0.3-2.5-2-4.5-4.4-5.1 C34.1,5,29.2,4,24,4L24,4z"
-        ></path>
-        <path fill="#dcedc8" d="M23 28H25V36H23z"></path>
-        <path
-          fill="#4caf50"
-          d="M24,10c0,0-6,5-6,13c0,5.2,3.3,8.5,5,10l1-3l1,3c1.7-1.5,5-4.8,5-10C30,15,24,10,24,10z"
-        ></path>
-        <path
-          fill="#81c784"
-          d="M24,10c0,0-6,5-6,13c0,5.2,3.3,8.5,5,10l1-3V10z"
-        ></path>
-      </svg>
-      <p className="mt-4 text-xl font-bold text-white opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:animate-float">
-        MongoDB
-      </p>
-    </GlareCard>
+    <figure
+      className={cn(
+        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        // light styles
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+    
+        <Image className="rounded-full" width="32" height="32" alt="" src={ImageLink} />
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-medium dark:text-white">
+            {Name}
+          </figcaption>
+          {/* <p className="text-xs font-medium dark:text-white/40">{username}</p> */}
+        </div>
+      </div>
+      {/* <blockquote className="mt-2 text-sm">{body}</blockquote> */}
+    </figure>
   );
-}
+};
+
+const TechStackCarousal = () => {
+  return (
+    <div>
+        <h1 className="heading mb-5">
+        A small selection of{" "}
+        <span className="text-purple">Tech Stack</span>
+      </h1>
+       <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl">
+        
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((StackDetail) => (
+            <TechStackCard key={StackDetail.Name} {...StackDetail} />
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {secondRow.map((StackDetail) => (
+            <TechStackCard key={StackDetail.Name} {...StackDetail} />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+      </div>
+    </div>
+   
+  );
+};
+
+export default TechStackCarousal;
